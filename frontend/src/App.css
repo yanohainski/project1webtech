@@ -1,0 +1,38 @@
+.myBackground{
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  background: rgb(205,0,118);
+  background: linear-gradient(137deg, rgba(205,0,118,1) 0%, rgba(85,35,185,1) 68%); 
+}
+
+.witheBox{
+  background-color: white;
+  padding: 20px;
+  min-width: 300px;
+  text-align: center;
+  height: 70%;
+  width: 25%;
+  border: 1px solid black;
+}
+
+.itemBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 100px
+}
+
+.myForm{
+  width : 95%;
+}
+
+.myButton{
+  
+  width: 95%;
+}
