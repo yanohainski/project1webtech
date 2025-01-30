@@ -8,6 +8,9 @@ export default function MyTextFields({label, value, name, onChange}) {
             id="standard-basic" 
             variant="standard" 
             label={label}
+            value={value}
+            onChange={onChange} 
+            name={name}
             fullWidth
             />
     </div>

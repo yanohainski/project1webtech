@@ -7,6 +7,8 @@ import MyDateTimePicker from './MyDatePicker';
 import MyTextFields from './MyTextform';
 import BasicButtons from './MyButton';
 import 'dayjs/locale/de'
+import AxiosInstance from '../calendar_components/Axios';
+import daysjs from 'dayjs';
 
 const style = {
   position: 'absolute',
@@ -20,8 +22,26 @@ const style = {
   p: 4,
 };
 
-export default function MyModal({open, handleClose, myDate, formData}) 
+export default function MyModal({open, handleClose, myDate, formData, handleChange}) 
 {
+
+  const submission =(event) => {
+    event.preventDefault()
+
+    const StartDate = daysjs(formData.start["$d"]).format('YYYY-MM-DDTHH:mm')
+    const EndDate = daysjs(formData.end["$d"]).format('YYYY-MM-DDTHH:mm')
+
+    AxiosInstance.post('appointments/',{
+      title: formData.title,
+      start: StartDate,
+      end: EndDate
+    })
+    .then((res) => {
+      console.log(res)
+      window.location.reload()
+    })
+  
+  }
    
   return (
     <div>
@@ -38,36 +58,42 @@ export default function MyModal({open, handleClose, myDate, formData})
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
 
-            <forms>
+            <form onSubmit ={submission}>
                 <Box sx={{marginBottom: '20px'}}>   
                     <MyTextFields 
                         label="Title"
-                        name="title"
+                        name="title" 
+                        value = {formData.title}
+                        onChange = {handleChange}
                     />
                 </Box>
         
                 <Box sx={{marginBottom: '20px'}}>   
                     <MyDateTimePicker
-                   label="Start"
+                   label="Start Date"
                    name = "start"
+                   value={formData.start}
+                   onChange = {handleChange}
                     />
                 </Box>
 
                 <Box sx={{marginBottom: '20px'}}>   
                     <MyDateTimePicker
-                     label="End"
+                     label="End Date"
                      name= "end"
+                     value={formData.end}
+                     onChange = {handleChange}
                     />
                 </Box>
 
                 <Box sx={{marginBottom: '20px'}}>   
                     <BasicButtons
-                        label="Save"
-                        type = "submit"
+                        label = {"Submit"}
+                        type = {"submit"}
                     />
                 </Box>
 
-            </forms>
+            </form>
             
           </Typography>
         </Box>

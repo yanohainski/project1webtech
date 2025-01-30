@@ -3,6 +3,7 @@ import MyCalendar1 from "./calendar_components/calendar_logic";
 import AxiosInstance from "./calendar_components/Axios";  
 import MyModal from "./UI/Modal";
 import daysjs from 'dayjs';
+import dayjs from "dayjs";
 
 
 const Calendar1 = () => {
@@ -14,20 +15,39 @@ const Calendar1 = () => {
         start: '', 
         end: '',
       })
+
+      const handleChange = (e) => {
+        const {name, value} = e.target
+        setFormData({ 
+            ...formData, 
+            [name]: value
+        })
+      }
+
+      console.log('data from my form', formData)
   
 
     {/*Display Date via Click on, wird hier eingebaut, damit eigenes Modal angezeigt wird */}
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState([false]);
+
+
     const handleOpen = (info) => {
         setOpen(true)
-        console.log(info.dateStr)
-        console.log(formData)
         setSelectedDate(info.dateStr)
+        setFormData({      
+            title: '',  
+            start: dayjs(info.dateStr), 
+            end: dayjs(info.dateStr)})
         
     };
-    const handleClose = () => setOpen(false);
-
+    const handleClose = () => {
+        setOpen(false);
+        setFormData({      
+            title: '',  
+            start: '', 
+            end: '',})
+        }
 
     {/*Getting the events form Backend */}
     const [events, setEvents] = useState([])
@@ -42,7 +62,7 @@ const Calendar1 = () => {
         GetData();
     },[])
 
-    {/*Main Calendar*/}
+    {/*Main Calendar, all components get put together*/}
 
     return (
         <div>
@@ -51,6 +71,7 @@ const Calendar1 = () => {
             handleClose={handleClose}
             myDate={selectedDate}
             formData={formData}
+            handleChange={handleChange}
            />
 
             <h1></h1>

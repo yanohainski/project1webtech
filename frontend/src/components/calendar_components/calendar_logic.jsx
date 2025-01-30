@@ -7,6 +7,8 @@ import multiMonthPlugin from '@fullcalendar/multimonth'
 import interactionPlugin from '@fullcalendar/interaction'
 
 
+{/*Main Calendar Component, here the layout of the calendar gets defined*/}
+
 
 const MyCalendar1 = ({myEvents, dayClickAction}) => {
 
