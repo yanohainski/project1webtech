@@ -43,8 +43,6 @@ export default function MyModal({open, handleClose, myDate, formData})
                     <MyTextFields 
                         label="Title"
                         name="title"
-                    
-                 
                     />
                 </Box>
         
@@ -52,8 +50,6 @@ export default function MyModal({open, handleClose, myDate, formData})
                     <MyDateTimePicker
                    label="Start"
                    name = "start"
-                  
-
                     />
                 </Box>
 
@@ -61,7 +57,6 @@ export default function MyModal({open, handleClose, myDate, formData})
                     <MyDateTimePicker
                      label="End"
                      name= "end"
-               
                     />
                 </Box>
 
@@ -69,8 +64,6 @@ export default function MyModal({open, handleClose, myDate, formData})
                     <BasicButtons
                         label="Save"
                         type = "submit"
-                        
-                   
                     />
                 </Box>
 

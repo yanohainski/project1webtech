@@ -16,7 +16,7 @@ const Calendar1 = () => {
       })
   
 
-    {/*Display Date via Click on */}
+    {/*Display Date via Click on, wird hier eingebaut, damit eigenes Modal angezeigt wird */}
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState([false]);
     const handleOpen = (info) => {

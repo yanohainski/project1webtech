@@ -10,11 +10,6 @@ import interactionPlugin from '@fullcalendar/interaction'
 
 const MyCalendar1 = ({myEvents, dayClickAction}) => {
 
-
-  /*const eventClickAction = (info) => {
-    alert('Event: ' + info.event.title);
-  }*/
-
     return (
       <FullCalendar
         plugins={[ dayGridPlugin, timegridPlugin, listPlugin, multiMonthPlugin, interactionPlugin ]}
@@ -54,4 +49,4 @@ const MyCalendar1 = ({myEvents, dayClickAction}) => {
     );
 }
 
-export default MyCalendar1;
+export default MyCalendar1
