@@ -7,7 +7,12 @@ import multiMonthPlugin from '@fullcalendar/multimonth'
 import interactionPlugin from '@fullcalendar/interaction'
 
 
-{/*Main Calendar Component, here the layout of the calendar gets defined*/}
+{/*Main Calendar Component, here the layout of the calendar gets defined and exported. 
+  We use the FullCalendar component from the FullCalendar library, and import the needed plugins for it.
+  Here we can define what will be displayed in the calendar and what happens while clicking on a day.
+
+  in the views part we also defined our own three month view.
+  */}
 
 
 const MyCalendar1 = ({myEvents, dayClickAction}) => {
@@ -36,6 +41,7 @@ const MyCalendar1 = ({myEvents, dayClickAction}) => {
             hour12: false
           }
         }
+
         views = {{
           multiMonth3:{
              type: 'multiMonth', 

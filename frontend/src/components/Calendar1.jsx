@@ -1,20 +1,28 @@
 import {React, useEffect, useState} from "react";
-import MyCalendar1 from "./calendar_components/calendar_logic";
+import MyCalendar1 from "./calendar_components/calendar_layout";
 import AxiosInstance from "./calendar_components/Axios";  
 import MyModal from "./UI/Modal";
-import daysjs from 'dayjs';
 import dayjs from "dayjs";
+
+{/*This is our Calendar Page, that will be shown. This file handles the logic of our calendar
+    We import the needed parts from react, like useEffect, useState and also our components MyCalendar1, AxiosInstance and MyModal.
+    */}
 
 
 const Calendar1 = () => {
 
-    {/*Modal Data Handeling for Changing Data*/}
+    {/*Modal Data Handeling for Changing Data
+        with this constant named formData we can store the Data for our Appointments temporarily before they get send to the backend
+        it hass the attributes title, start and end, which are the attributes of our Appointments, and named the same way in the backend
+        */}
 
     const [formData, setFormData] = useState({ 
         title: '',  
         start: '', 
         end: '',
       })
+
+      {/*This function handles the change of the data in the form*/}
 
       const handleChange = (e) => {
         const {name, value} = e.target
@@ -24,10 +32,14 @@ const Calendar1 = () => {
         })
       }
 
+    {/*Log inside the Console of our Browser to check if the Data is correct*/}
+
       console.log('data from my form', formData)
   
 
-    {/*Display Date via Click on, wird hier eingebaut, damit eigenes Modal angezeigt wird */}
+    {/*Display Date via Click on, this is used here to use our own Modal
+        handles the click to open and close mechanism */}
+
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState([false]);
 
@@ -49,7 +61,7 @@ const Calendar1 = () => {
             end: '',})
         }
 
-    {/*Getting the events form Backend */}
+    {/*Getting the events form Backend, they will be stored inside the "events" constant, which we will load into our calendar UI*/}
     const [events, setEvents] = useState([])
     const GetData = () => {
         AxiosInstance.get(`appointments/`).then((res) =>{
@@ -66,6 +78,7 @@ const Calendar1 = () => {
 
     return (
         <div>
+            {/*This is our Modal with all the necessary imported data, which was defined before*/}
            <MyModal
             open = {open}
             handleClose={handleClose}
@@ -75,6 +88,9 @@ const Calendar1 = () => {
            />
 
             <h1></h1>
+            {/*This is our calendar component which we imported. We will pass the "events" imported from the backend
+            and also the function "handleOpen" which will be used to open the Modal for changing the data of the appointments
+            */}
             <MyCalendar1 
                 myEvents={events}
                 dayClickAction = {handleOpen}

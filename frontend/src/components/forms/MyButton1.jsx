@@ -1,7 +1,9 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-export default function MyButton(props) {
+{/*Button component for our Login page*/}
+
+export default function MyButton(props, onClick) {
     const text = props
   return (
    

@@ -8,6 +8,10 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import '../../App.css'
 
+
+
+{/*Passfield component to enter the password and hide it*/}
+
 export default function MyPassField(props) {
   const [showPassword, setShowPassword] = React.useState(false);
 

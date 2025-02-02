@@ -7,6 +7,12 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 
 
+{/*This is our Datepicker component, that will be loaded into our Modal
+  we used a basic structure from material UI.
+  We also used the AdapterDayjs, LocalizationProvider and DateTimePicker from Material UI,
+   which are used to get the right format for the datepicker.
+  .*/}
+
 export default function MyDateTimePicker({label, value, name, onChange}) 
 {
   const handleDateChange = (newDate) => {
