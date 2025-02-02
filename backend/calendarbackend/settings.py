@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+
+#In this part we define our settings for our Django Project, we included the rest_framework and our api app in the installed apps
+#We also included the CORS_ALLOWED_ORIGINS setting, this is used to allow requests from our frontend, with the origin http://localhost:5173
+#We also included the AUTH_USER_MODEL setting, this is used to define our custom user model, we will use this later in the project. This part is currently disabled due to problems with our first selfmade User model. 
+#We also included the DATABASES setting, this is used to define our database, we are using the default sqlite3 database
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,6 +83,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
 ]
 
+#AUTH_USER_MODEL = 'api.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

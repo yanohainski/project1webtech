@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# URL patterns for the project
+# since we use a router for our project, we dont need to define every URL ourselves.
+# with the include function we include the urls from our api app, that we defined in the api/urls.py file
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('api.urls')),

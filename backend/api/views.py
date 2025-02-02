@@ -6,6 +6,7 @@ from .models import *
 
 
 # Create your views here.
+# Create our views, that will be used to create our API routes and define there logic
 
 class AppointmentViewset(viewsets.ViewSet):
     permission_classes = [permissions.AllowAny]
@@ -24,4 +25,11 @@ class AppointmentViewset(viewsets.ViewSet):
             return Response(serializer.data)
         else:
             return Response(serializer.errors, status=400)
+
+class UserViewset(viewsets.ViewSet):
+    permission_classes = [permissions.AllowAny]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
         
